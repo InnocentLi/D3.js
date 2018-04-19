@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            color: #000000;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+        }
+
+        thead {
+            background: #3d444c;
+            color: #ffffff;
+        }
+
+        td,
+        th {
+            border: 1px solid #e1e1e1;
+            padding: 0;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>price</th>
+                <th>sales</th>
+            </tr>
+        </thead>
+        <tbody id="jsList">
+            <tr>
+                <td>1</td>
+                <td>10.0</td>
+                <td>800</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>30.0</td>
+                <td>600</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>20.5</td>
+                <td>700</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>40.5</td>
+                <td>500</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>60.5</td>
+                <td>300</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>50.0</td>
+                <td>400</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>70.0</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>80.5</td>
+                <td>100</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+<script>
+
+    function sort(type, order) {
+  var caaa = document.getElementById("jsList");
+    var count = caaa.childElementCount;
+    var obj = {
+        id: [],
+        price: [],
+        sales: [],
+    }
+    for (var i = 0; i < count; i++) {
+        var caaa = document.getElementById("jsList");
+        obj.id[i] = caaa.children[i].children[0].innerText;
+        obj.price[i] = caaa.children[i].children[1].innerText;
+        obj.sales[i] = caaa.children[i].children[2].innerText;
+    }
+        let temp1, temp2, temp3;
+        //asc 
+        //  desc
+        
+        // id  asc
+        if (type == "id" && order == "asc") {
+            for (let i = 0; i < count; i++) {
+                for (let j = 0; j < count; j++) {
+                    if (obj.id[i] < obj.id[j]) {
+                        temp1 = obj.id[i];
+                        obj.id[i] = obj.id[j];
+                        obj.id[j] = temp1;
+
+                        temp2 = obj.price[i];
+                        obj.price[i] = obj.price[j];
+                        obj.price[j] = temp2;
+
+                        temp3 = obj.sales[i];
+                        obj.sales[i] = obj.sales[j];
+                        obj.sales[j] = temp3;
+                    }
+                }
+            }
+        }
+
+         // id desc
+         else if (type == "id" && order == "desc") {
+            for (let i = 0; i < count; i++) {
+                for (let j = 0; j < count; j++) {
+                    if (obj.id[i] > obj.id[j]) {
+                        temp1 = obj.id[i];
+                        obj.id[i] = obj.id[j];
+                        obj.id[j] = temp1;
+
+                        temp2 = obj.price[i];
+                        obj.price[i] = obj.price[j];
+                        obj.price[j] = temp2;
+
+                        temp3 = obj.sales[i];
+                        obj.sales[i] = obj.sales[j];
+                        obj.sales[j] = temp3;
+                    }
+                }
+            }
+        }
+
+        // price  asc
+        else if (type == "price" && order == "asc") {
+            for (let i = 0; i < count; i++) {
+                for (let j = 0; j < count; j++) {
+                    if (obj.price[i] < obj.price[j]) {
+                        temp1 = obj.id[i];
+                        obj.id[i] = obj.id[j];
+                        obj.id[j] = temp1;
+
+                        temp2 = obj.price[i];
+                        obj.price[i] = obj.price[j];
+                        obj.price[j] = temp2;
+
+                        temp3 = obj.sales[i];
+                        obj.sales[i] = obj.sales[j];
+                        obj.sales[j] = temp3;
+                    }
+                }
+            }
+        }
+
+         // price desc
+         else  if (type == "price" && order == "desc") {
+            for (let i = 0; i < count; i++) {
+                for (let j = 0; j < count; j++) {
+                    if (obj.price[i] > obj.price[j]) {
+                        temp1 = obj.id[i];
+                        obj.id[i] = obj.id[j];
+                        obj.id[j] = temp1;
+
+                        temp2 = obj.price[i];
+                        obj.price[i] = obj.price[j];
+                        obj.price[j] = temp2;
+
+                        temp3 = obj.sales[i];
+                        obj.sales[i] = obj.sales[j];
+                        obj.sales[j] = temp3;
+                    }
+                }
+            }
+        }
+
+         //   sales  asc
+         else if (type == "sales" && order == "asc") {
+            for (let i = 0; i < count; i++) {
+                for (let j = 0; j < count; j++) {
+                    if (obj.sales[i] < obj.sales[j]) {
+                        temp1 = obj.id[i];
+                        obj.id[i] = obj.id[j];
+                        obj.id[j] = temp1;
+
+                        temp2 = obj.price[i];
+                        obj.price[i] = obj.price[j];
+                        obj.price[j] = temp2;
+
+                        temp3 = obj.sales[i];
+                        obj.sales[i] = obj.sales[j];
+                        obj.sales[j] = temp3;
+                    }
+                }
+            }
+        }
+
+         //   sales  desc
+         else if (type == "sales" && order == "desc") {
+            for (let i = 0; i < count; i++) {
+                for (let j = 0; j < count; j++) {
+                    if (obj.sales[i] > obj.sales[j]) {
+                        temp1 = obj.id[i];
+                        obj.id[i] = obj.id[j];
+                        obj.id[j] = temp1;
+
+                        temp2 = obj.price[i];
+                        obj.price[i] = obj.price[j];
+                        obj.price[j] = temp2;
+
+                        temp3 = obj.sales[i];
+                        obj.sales[i] = obj.sales[j];
+                        obj.sales[j] = temp3;
+                    }
+                }
+            }
+        }
+
+        //asc
+        //  desc
+
+
+
+
+        var cbbbb = document.getElementById("jsList");
+        for (let i = 0; i < count; i++) {
+            cbbbb.children[i].children[0].innerText = obj.id[i];
+            cbbbb.children[i].children[1].innerText = obj.price[i];
+            cbbbb.children[i].children[2].innerText = obj.sales[i];
+        }
+    }
+
+//sort("id","asc");
+
+</script>
+
+</html>
